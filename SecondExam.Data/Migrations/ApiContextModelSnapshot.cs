@@ -41,6 +41,20 @@ namespace SecondExam.Data.Migrations
                     b.HasKey("CredentialsID");
 
                     b.ToTable("UserCredentials");
+
+                    b.HasData(
+                        new
+                        {
+                            CredentialsID = 1,
+                            Login = "admin",
+                            Password = "admin"
+                        },
+                        new
+                        {
+                            CredentialsID = 2,
+                            Login = "user",
+                            Password = "user"
+                        });
                 });
 
             modelBuilder.Entity("SecondExam.Data.Model.Authentication.User", b =>
@@ -63,6 +77,20 @@ namespace SecondExam.Data.Migrations
                         .IsUnique();
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = 1,
+                            CredentialsID = 1,
+                            Role = 0
+                        },
+                        new
+                        {
+                            UserId = 2,
+                            CredentialsID = 2,
+                            Role = 1
+                        });
                 });
 
             modelBuilder.Entity("SecondExam.Data.Model.Author", b =>
@@ -81,12 +109,35 @@ namespace SecondExam.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Counter")
-                        .HasColumnType("int");
-
                     b.HasKey("AuthorId");
 
                     b.ToTable("Authors");
+
+                    b.HasData(
+                        new
+                        {
+                            AuthorId = 1,
+                            AuthorDescription = "Polish author",
+                            AuthorName = "Jan Kowalski"
+                        },
+                        new
+                        {
+                            AuthorId = 2,
+                            AuthorDescription = "Famous russian scientist",
+                            AuthorName = "Wolodia Puszkin"
+                        },
+                        new
+                        {
+                            AuthorId = 3,
+                            AuthorDescription = "Inventor of tens",
+                            AuthorName = "Nacomi Tachata"
+                        },
+                        new
+                        {
+                            AuthorId = 4,
+                            AuthorDescription = "Has so many publications",
+                            AuthorName = "Daniel Nowak"
+                        });
                 });
 
             modelBuilder.Entity("SecondExam.Data.Model.Material", b =>
@@ -115,19 +166,58 @@ namespace SecondExam.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("MaterialTypeTypeId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("TypeId")
+                    b.Property<int?>("MaterialTypeId")
                         .HasColumnType("int");
 
                     b.HasKey("MaterialId");
 
                     b.HasIndex("AuthorId");
 
-                    b.HasIndex("MaterialTypeTypeId");
+                    b.HasIndex("MaterialTypeId");
 
                     b.ToTable("Materials");
+
+                    b.HasData(
+                        new
+                        {
+                            MaterialId = 1,
+                            AuthorId = 1,
+                            CreatedDate = new DateTime(2009, 7, 4, 8, 15, 11, 16, DateTimeKind.Unspecified).AddTicks(790),
+                            MaterialDescription = "How to avoid nulls in C#",
+                            MaterialLocation = "Internet",
+                            MaterialTitle = "How to avoid Nulls",
+                            MaterialTypeId = 1
+                        },
+                        new
+                        {
+                            MaterialId = 2,
+                            AuthorId = 2,
+                            CreatedDate = new DateTime(2004, 12, 26, 0, 24, 16, 94, DateTimeKind.Unspecified).AddTicks(2403),
+                            MaterialDescription = "Basic of C#",
+                            MaterialLocation = "Library",
+                            MaterialTitle = "C# for dummies",
+                            MaterialTypeId = 3
+                        },
+                        new
+                        {
+                            MaterialId = 3,
+                            AuthorId = 3,
+                            CreatedDate = new DateTime(1998, 4, 1, 17, 33, 29, 610, DateTimeKind.Unspecified).AddTicks(3173),
+                            MaterialDescription = "Collection of best practices",
+                            MaterialLocation = "Internet",
+                            MaterialTitle = "Best practices in code",
+                            MaterialTypeId = 2
+                        },
+                        new
+                        {
+                            MaterialId = 4,
+                            AuthorId = 4,
+                            CreatedDate = new DateTime(2004, 1, 30, 22, 47, 4, 352, DateTimeKind.Unspecified).AddTicks(7247),
+                            MaterialDescription = "How to seed database",
+                            MaterialLocation = "Internet",
+                            MaterialTitle = "Seeding Database",
+                            MaterialTypeId = 4
+                        });
                 });
 
             modelBuilder.Entity("SecondExam.Data.Model.MaterialType", b =>
@@ -148,6 +238,32 @@ namespace SecondExam.Data.Migrations
                     b.HasKey("TypeId");
 
                     b.ToTable("Types");
+
+                    b.HasData(
+                        new
+                        {
+                            TypeId = 1,
+                            TypeDefinition = "Video tutorial is a video material that focuses mostly on guiding step-by-step in dedicated topic",
+                            TypeName = "Video tutorial"
+                        },
+                        new
+                        {
+                            TypeId = 2,
+                            TypeDefinition = "Article is an article on web page",
+                            TypeName = "Article"
+                        },
+                        new
+                        {
+                            TypeId = 3,
+                            TypeDefinition = "What book is, everybody knows",
+                            TypeName = "Book"
+                        },
+                        new
+                        {
+                            TypeId = 4,
+                            TypeDefinition = "Sample code",
+                            TypeName = "Code snippet"
+                        });
                 });
 
             modelBuilder.Entity("SecondExam.Data.Model.Review", b =>
@@ -161,7 +277,7 @@ namespace SecondExam.Data.Migrations
                     b.Property<int>("DigitReview")
                         .HasColumnType("int");
 
-                    b.Property<int?>("MaterialId")
+                    b.Property<int>("MaterialId")
                         .HasColumnType("int");
 
                     b.Property<string>("ReviewReference")
@@ -176,6 +292,48 @@ namespace SecondExam.Data.Migrations
                     b.HasIndex("MaterialId");
 
                     b.ToTable("Reviews");
+
+                    b.HasData(
+                        new
+                        {
+                            ReviewId = 1,
+                            DigitReview = 9,
+                            MaterialId = 1,
+                            ReviewReference = "https://localhost:5001/1",
+                            TextReview = "Good material"
+                        },
+                        new
+                        {
+                            ReviewId = 2,
+                            DigitReview = 10,
+                            MaterialId = 1,
+                            ReviewReference = "https://localhost:5001/1",
+                            TextReview = "Great material"
+                        },
+                        new
+                        {
+                            ReviewId = 3,
+                            DigitReview = 2,
+                            MaterialId = 1,
+                            ReviewReference = "https://localhost:5001/1",
+                            TextReview = "poor material"
+                        },
+                        new
+                        {
+                            ReviewId = 4,
+                            DigitReview = 9,
+                            MaterialId = 2,
+                            ReviewReference = "https://localhost:5001/2",
+                            TextReview = "Good material"
+                        },
+                        new
+                        {
+                            ReviewId = 5,
+                            DigitReview = 7,
+                            MaterialId = 3,
+                            ReviewReference = "https://localhost:5001/3",
+                            TextReview = "Good material"
+                        });
                 });
 
             modelBuilder.Entity("SecondExam.Data.Model.Authentication.User", b =>
@@ -197,7 +355,7 @@ namespace SecondExam.Data.Migrations
 
                     b.HasOne("SecondExam.Data.Model.MaterialType", "MaterialType")
                         .WithMany()
-                        .HasForeignKey("MaterialTypeTypeId");
+                        .HasForeignKey("MaterialTypeId");
 
                     b.Navigation("MaterialType");
 
@@ -208,7 +366,9 @@ namespace SecondExam.Data.Migrations
                 {
                     b.HasOne("SecondExam.Data.Model.Material", null)
                         .WithMany("MaterialReviews")
-                        .HasForeignKey("MaterialId");
+                        .HasForeignKey("MaterialId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("SecondExam.Data.Model.Authentication.Credentials", b =>

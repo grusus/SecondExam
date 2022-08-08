@@ -1,1 +1,4 @@
-﻿
+﻿1|Jan Kowalski|Polish author
+2|Wolodia Puszkin|Famous russian scientist
+3|Nacomi Tachata|Inventor of tens
+4|Daniel Nowak|Has so many publications

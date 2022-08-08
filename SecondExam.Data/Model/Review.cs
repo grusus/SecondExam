@@ -10,5 +10,6 @@
 #pragma warning restore CS8618
         [Range(1,10, ErrorMessage = "Range must be within 1 and 10")]
         public int DigitReview { get; set; }
+        public int MaterialId { get; set; }
     }
 }

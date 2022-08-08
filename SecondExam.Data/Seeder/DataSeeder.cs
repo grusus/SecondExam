@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace SecondExam.Data.Seeder
 {
-    internal class DataSeeder
+    public static class DataSeeder
     {
+        public static void SeedDB(this ModelBuilder builder)
+        {
+            builder.SeedAuthors();
+            builder.SeedMaterials();
+            builder.SeedReviews();
+            builder.SeedTypes();
+            builder.SeedUsersWithCredentials();
+        }
     }
 }

@@ -1,4 +1,6 @@
 ﻿
+using SecondExam.Data.Seeder;
+
 namespace SecondExam.Data.Context
 {
     public class ApiContext : DbContext
@@ -15,9 +17,10 @@ namespace SecondExam.Data.Context
         public DbSet<MaterialType> Types { get; set; }
         public DbSet<Credentials> UserCredentials { get; set; }
         public DbSet<User> Users { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.SeedDB();
+        }
     }
-    //protected override void OnModelCreating(ModelBuilder modelBuilder)
-    //{
-       
-    //}
 }

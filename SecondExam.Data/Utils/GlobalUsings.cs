@@ -9,3 +9,5 @@ global using System.Threading.Tasks;
 global using Microsoft.EntityFrameworkCore;
 global using SecondExam.Data.Model.Authentication;
 global using SecondExam.Data.Model;
+global using SecondExam.Data.Seeder.EntitiesSeeder;
+

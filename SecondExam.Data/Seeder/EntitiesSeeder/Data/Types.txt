@@ -1,1 +1,4 @@
-﻿
+﻿1|Video tutorial|Video tutorial is a video material that focuses mostly on guiding step-by-step in dedicated topic
+2|Article|Article is an article on web page
+3|Book|What book is, everybody knows
+4|Code snippet|Sample code
