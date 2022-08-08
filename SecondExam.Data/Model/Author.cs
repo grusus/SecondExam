@@ -10,6 +10,8 @@
 #pragma warning restore CS8618
         public List<Material>? AuthorPublications { get; set; }
         [NotMapped]
+#pragma warning disable CS8602
         public int? Counter => AuthorPublications.Count;
+#pragma warning restore CS8602
     }
 }

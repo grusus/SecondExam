@@ -1,12 +1,53 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SecondExam.Data.Repository.Interfaces;
 
 namespace SecondExam.Data.Repository.Repositories
 {
-    internal class AuthorsRepository
+    public class AuthorsRepository : IAuthorsRepository
     {
+        private readonly ApiContext _context;
+        public AuthorsRepository(ApiContext injectedContext)
+        {
+            _context = injectedContext;
+        }
+        public async Task<Author?> CreateAsync(Author entity)
+        {
+            EntityEntry<Author> addedAuthor = await _context.Authors.AddAsync(entity);
+            int affectedRows = await SaveChangesAsync();
+            if (affectedRows == 1) return entity;
+            return null;
+        }
+
+        public async Task<bool?> DeleteAsync(int id)
+        {
+            Author? soughtAuthor = await _context.Authors.FindAsync(id);
+            if (soughtAuthor == null) return null;
+            _context.Authors.Remove(soughtAuthor);
+            int affectedRows = await SaveChangesAsync();
+            if (affectedRows == 1) return true;
+            return null;
+        }
+
+        public async Task<IEnumerable<Author>> RetrieveAllAsync()
+        {
+            return await _context.Authors.ToListAsync();
+        }
+
+        public async Task<Author?> RetrieveAsync(int id)
+        {
+            return await _context.Authors.FindAsync(id);
+        }
+
+        public async Task<int> SaveChangesAsync()
+        {
+            return await _context.SaveChangesAsync();
+        }
+
+        public async Task<Author?> UpdateAsync(Author entity)
+        {
+            _context.Authors.Update(entity);
+            int affectedRows = await SaveChangesAsync();
+            if (affectedRows == 1) return entity;
+            return null;
+        }
     }
 }

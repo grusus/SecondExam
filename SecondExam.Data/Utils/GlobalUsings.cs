@@ -3,11 +3,12 @@ global using System;
 global using System.Collections.Generic;
 global using System.ComponentModel.DataAnnotations;
 global using System.ComponentModel.DataAnnotations.Schema;
-global using System.Linq;
-global using System.Text;
 global using System.Threading.Tasks;
 global using Microsoft.EntityFrameworkCore;
 global using SecondExam.Data.Model.Authentication;
 global using SecondExam.Data.Model;
 global using SecondExam.Data.Seeder.EntitiesSeeder;
-
+global using Microsoft.EntityFrameworkCore.ChangeTracking;
+global using SecondExam.Data.Context;
+global using SecondExam.Data.Repository.Interfaces;
+global using SecondExam.Data.Repository.Repositories;
