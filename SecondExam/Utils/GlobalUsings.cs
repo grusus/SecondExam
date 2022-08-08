@@ -4,3 +4,8 @@ global using SecondExam.Middlewares;
 global using Serilog;
 global using Serilog.Events;
 global using System.Diagnostics;
+global using System.Security.Cryptography;
+global using System.Text;
+global using Microsoft.AspNetCore.Authentication.JwtBearer;
+global using Microsoft.IdentityModel.Tokens;
+global using Microsoft.OpenApi.Models;
