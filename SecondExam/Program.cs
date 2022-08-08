@@ -1,4 +1,5 @@
 
+
 var builder = WebApplication.CreateBuilder(args);
 var logger = new LoggerConfiguration()
             .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
@@ -11,7 +12,11 @@ builder.Logging.AddSeq();
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson(s =>
+{
+    s.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+}); ;
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddDbContext<ApiContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("ApiConnection")));
 builder.Services.AddEndpointsApiExplorer();
