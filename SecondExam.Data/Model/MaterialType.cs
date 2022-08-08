@@ -1,7 +1,8 @@
 ﻿namespace SecondExam.Data.Model
 {
-    public class Type
+    public class MaterialType
     {
+        [Key]
         public int TypeId { get; set; }
 #pragma warning disable CS8618
         public string TypeName { get; set; }

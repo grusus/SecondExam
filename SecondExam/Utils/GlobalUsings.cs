@@ -1,6 +1,2 @@
-﻿namespace SecondExam.Utils
-{
-    public class GlobalUsings
-    {
-    }
-}
+﻿global using Microsoft.EntityFrameworkCore;
+global using SecondExam.Data.Context;
