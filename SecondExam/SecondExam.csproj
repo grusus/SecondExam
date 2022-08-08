@@ -14,4 +14,8 @@
     <Folder Include="DTOs\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SecondExam.Data\SecondExam.Data.csproj" />
+  </ItemGroup>
+
 </Project>
