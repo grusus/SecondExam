@@ -1,7 +1,9 @@
-﻿namespace SecondExam.Controllers
+﻿
+namespace SecondExam.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class LoginController : ControllerBase
     {
         public IConfiguration _configuration;

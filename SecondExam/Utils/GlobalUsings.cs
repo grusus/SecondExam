@@ -16,3 +16,4 @@ global using SecondExam.Utils;
 global using System.IdentityModel.Tokens.Jwt;
 global using System.Security.Claims;
 global using SecondExam.Data.Repository;
+global using System.Web.Http.Cors;

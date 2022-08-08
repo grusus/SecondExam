@@ -1,5 +1,4 @@
 
-
 var builder = WebApplication.CreateBuilder(args);
 var logger = new LoggerConfiguration()
             .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
@@ -69,7 +68,7 @@ if (app.Environment.IsDevelopment())
 }
 app.UseMiddleware<SerilogMiddleware>();
 app.UseHttpsRedirection();
-
+app.UseCors();
 app.UseAuthorization();
 
 app.MapControllers();
