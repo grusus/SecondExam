@@ -1,5 +1,12 @@
-
 var builder = WebApplication.CreateBuilder(args);
+var logger = new LoggerConfiguration()
+            .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+            .Enrich.FromLogContext()
+            .WriteTo.Console()
+            .CreateLogger();
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(logger);
+builder.Logging.AddSeq();
 
 // Add services to the container.
 
@@ -17,7 +24,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseMiddleware<SerilogMiddleware>();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
