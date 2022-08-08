@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SecondExam.Data.Model
+﻿namespace SecondExam.Data.Model
 {
-    internal class Type
+    public class Type
     {
+        public int TypeId { get; set; }
+#pragma warning disable CS8618
+        public string TypeName { get; set; }
+#pragma warning restore CS8618
+        public string? TypeDefinition { get; set; }
     }
 }

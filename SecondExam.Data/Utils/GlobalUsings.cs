@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SecondExam.Data.Utils
-{
-    internal class GlobalUsings
-    {
-    }
-}
+﻿global using SecondExam.Data.Utils;
+global using System;
+global using System.Collections.Generic;
+global using System.ComponentModel.DataAnnotations;
+global using System.ComponentModel.DataAnnotations.Schema;
+global using System.Linq;
+global using System.Text;
+global using System.Threading.Tasks;

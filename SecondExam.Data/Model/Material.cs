@@ -1,12 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SecondExam.Data.Model
+﻿namespace SecondExam.Data.Model
 {
-    internal class Material
+    public class Material
     {
+        [Key]
+        public int MaterialId { get; set; }
+#pragma warning disable CS8618
+        public string MaterialTitle { get; set; }
+        public string MaterialDescription { get; set; }
+        public string MaterialLocation { get; set; }
+        public Author? MatherialAuthor { get; set; }
+        public int? AuthorId { get; set; }
+        public Type? MaterialType { get; set; }
+        public int? TypeId { get; set; }
+        public List<Review>? MaterialReviews { get; set; }
+#pragma warning restore CS8618
+        public DateTime? CreatedDate { get; set; }
     }
 }
