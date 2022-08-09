@@ -2,7 +2,8 @@
 {
     [Route("api/[controller]")]
     [ApiController]
-    //  [Authorize(AuthenticationSchemes = "Bearer")]
+    [Authorize(AuthenticationSchemes = "Bearer")]
+    [Authorize(Roles = "admin")]
     public class MaterialsController : Controller
     {
         private readonly IUnitOfWork _repository;

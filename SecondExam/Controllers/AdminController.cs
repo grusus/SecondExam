@@ -5,7 +5,8 @@ namespace SecondExam.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //  [Authorize(AuthenticationSchemes = "Bearer")]
+    [Authorize(AuthenticationSchemes = "Bearer")]
+    [Authorize(Roles = "admin")]
     public class AdminController : Controller
     {
         private readonly IUnitOfWork _repository;

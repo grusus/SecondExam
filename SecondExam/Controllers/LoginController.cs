@@ -1,4 +1,6 @@
 ﻿
+using SecondExam.Data.Utils;
+
 namespace SecondExam.Controllers
 {
     [Route("api/[controller]")]
@@ -48,7 +50,8 @@ namespace SecondExam.Controllers
                         new Claim("UserId", user.UserId.ToString()),
                         new Claim("CredentialsID", user.CredentialsID.ToString()),
                         new Claim("Login", user.Credentials.Login),
-                        new Claim("Password", user.Credentials.Password)
+                        new Claim("Password", user.Credentials.Password),
+                        new Claim(ClaimTypes.Role, user.Role.ToString())
                     };
 
                     var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));

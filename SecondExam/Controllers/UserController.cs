@@ -2,7 +2,8 @@
 {
     [Route("api/[controller]")]
     [ApiController]
-  //  [Authorize(AuthenticationSchemes = "Bearer")]
+    [Authorize(AuthenticationSchemes = "Bearer")]
+    [Authorize(Roles = "user")]
     public class UserController : Controller
     {
         private readonly IUnitOfWork _repository;
