@@ -99,6 +99,18 @@ namespace SecondExam.Controllers
             return Ok(_mapper.Map<IList<MaterialsGetDTO>>(entity));
         }
         /// <summary>
+        /// Get most productive author
+        /// </summary>
+        /// <returns>Get most productive author</returns>
+        /// <response code="200">OK</response>
+        [HttpGet]
+        [Route("Authors/")]
+        public async Task<IActionResult> GetMostProductiveAuthor()
+        {
+            var entities = await _repository.Authors.RetrieveMostProductiveAuthor();
+            return Ok(_mapper.Map<AuthorGetFullDTO>(entities));
+        }
+        /// <summary>
         /// Get all Reviews
         /// </summary>
         /// <returns>Get all Reviews</returns>

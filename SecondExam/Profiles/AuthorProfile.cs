@@ -7,7 +7,7 @@ namespace SecondExam.Profiles
         {
             CreateMap<Author, AuthorsGetDTO>();
             CreateMap<Author, AuthorGetDTOwithId>();
-            CreateMap<Author, AuthorGetFullDto>();
+            CreateMap<Author, AuthorGetFullDTO>().ReverseMap();
         }
     }
 }

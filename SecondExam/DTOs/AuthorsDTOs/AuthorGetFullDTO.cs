@@ -1,6 +1,6 @@
 ﻿namespace SecondExam.DTOs.AuthorsDTOs
 {
-    public class AuthorGetFullDto
+    public class AuthorGetFullDTO
     {
         public string AuthorName { get; set; }
         public string AuthorDescription { get; set; }

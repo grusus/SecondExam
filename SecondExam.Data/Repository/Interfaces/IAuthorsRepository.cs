@@ -9,5 +9,6 @@
         Task<int> SaveChangesAsync();
         Task<Author?> UpdateAsync(Author entity);
         Task<Author?> RetrieveAsyncWithPublications(int id);
+        Task<Author?> RetrieveMostProductiveAuthor();
     }
 }

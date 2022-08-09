@@ -43,15 +43,12 @@ namespace SecondExam.Data.Repository.Repositories
                 .Where(x => x.AuthorId == id)
                 .FirstOrDefaultAsync();
         }
-        //public async Task<Author?> RetrieveAsyncWithPublicationsRatingAbove5(int id)
-        //{
-        //    return await _context.Authors
-        //        .Include(x => x.AuthorPublications)
-        //        .ThenInclude(x => x.MaterialReviews)
-        //        .Where(x => x.AuthorId == id)
-        //        .Where(x => x.AuthorPublications.Where(x => x.MaterialReviews.Average(x => x.DigitReview) >5))
-        //        .ToListAsync();
-        //}
+        public async Task<Author?> RetrieveMostProductiveAuthor()
+        {
+            var authors = await _context.Authors.Include(x => x.AuthorPublications).ToListAsync();
+
+            return authors.MaxBy(x => x.Counter);
+        }
 
         public async Task<int> SaveChangesAsync()
         {

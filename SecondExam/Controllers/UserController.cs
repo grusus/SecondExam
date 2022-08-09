@@ -120,7 +120,7 @@
         {
             var entity = await _repository.Authors.RetrieveAsyncWithPublications(id);
             if (entity == null) return NotFound();
-            return Ok(_mapper.Map<AuthorGetFullDto>(entity));
+            return Ok(_mapper.Map<AuthorGetFullDTO>(entity));
         }
 
         /// <summary>
