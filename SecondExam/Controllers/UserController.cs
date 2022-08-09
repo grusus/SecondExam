@@ -209,6 +209,36 @@
             var readDto = _mapper.Map<ReviewsGetSimpleDTO>(entity);
             return CreatedAtRoute(nameof(GetReview), new { Id = readDto.ReviewId }, readDto);
         }
+        /// <summary>
+        /// Update review
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Update Review </returns>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     PUT
+        ///     {
+        ///         "reviewReference": "string",
+        ///         "textReview": "string",
+        ///         "digitReview": 10
+        ///     }
+        ///
+        /// </remarks>
+        /// <response code="204">When actor was added</response>
+        /// <response code="404">If any object doesn't exist</response>
+        [HttpPut("Reviews/{id}")]
+        public async Task<ActionResult> UpdateReview(int id, ReviewsUpdateDTO updateDto)
+        {
+            var modelFromRepo = await _repository.Reviews.RetrieveAsync(id);
+            if (modelFromRepo == null)
+            {
+                return NotFound();
+            }
+            _mapper.Map(updateDto, modelFromRepo);
+            await _repository.Reviews.UpdateAsync(modelFromRepo);
+            return NoContent();
+        }
 
         /// <summary>
         /// Update Review
