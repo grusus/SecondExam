@@ -197,6 +197,7 @@
             createdEntity.ReviewReference = "https://localhost:7173/api/User/Review/" + createdEntity.ReviewId;
             if (!TryValidateModel(createdEntity))
             {
+                await _repository.Reviews.DeleteAsync(createdEntity.ReviewId);
                 return ValidationProblem(ModelState);
             }
             else
@@ -204,10 +205,11 @@
                 await _repository.Reviews.UpdateAsync(createdEntity);
                 material.MaterialReviews.Add(createdEntity);
                 await _repository.Materials.UpdateAsync(material);
+
+                var entity = await _repository.Reviews.RetrieveAsync(createdEntity.ReviewId);
+                var readDto = _mapper.Map<ReviewsGetSimpleDTO>(entity);
+                return CreatedAtRoute(nameof(GetReview), new { Id = readDto.ReviewId }, readDto);
             }
-            var entity = await _repository.Reviews.RetrieveAsync(createdEntity.ReviewId);
-            var readDto = _mapper.Map<ReviewsGetSimpleDTO>(entity);
-            return CreatedAtRoute(nameof(GetReview), new { Id = readDto.ReviewId }, readDto);
         }
         /// <summary>
         /// Update review
@@ -234,6 +236,10 @@
             if (modelFromRepo == null)
             {
                 return NotFound();
+            }
+            if (!TryValidateModel(modelFromRepo))
+            {
+                return ValidationProblem(ModelState);
             }
             _mapper.Map(updateDto, modelFromRepo);
             await _repository.Reviews.UpdateAsync(modelFromRepo);

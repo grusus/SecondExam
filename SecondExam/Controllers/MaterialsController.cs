@@ -89,6 +89,7 @@
             if (createdEntity == null) return BadRequest();
             if (!TryValidateModel(createdEntity))
             {
+                await _repository.Materials.DeleteAsync(createdEntity.MaterialId);
                 return ValidationProblem(ModelState);
             }
 
@@ -123,6 +124,10 @@
                 return NotFound();
             }
             _mapper.Map(updateDto, modelFromRepo);
+            if (!TryValidateModel(modelFromRepo))
+            {
+                return ValidationProblem(ModelState);
+            }
             await _repository.Materials.UpdateAsync(modelFromRepo);
             return NoContent();
         }

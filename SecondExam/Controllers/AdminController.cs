@@ -183,6 +183,7 @@ namespace SecondExam.Controllers
             createdEntity.ReviewReference = "https://localhost:7173/api/User/Review/" + createdEntity.ReviewId;
             if (!TryValidateModel(createdEntity))
             {
+                await _repository.Reviews.DeleteAsync(createdEntity.ReviewId);
                 return ValidationProblem(ModelState);
             }
             else
@@ -190,10 +191,11 @@ namespace SecondExam.Controllers
                 await _repository.Reviews.UpdateAsync(createdEntity);
                 material.MaterialReviews.Add(createdEntity);
                 await _repository.Materials.UpdateAsync(material);
+
+                var entity = await _repository.Reviews.RetrieveAsync(createdEntity.ReviewId);
+                var readDto = _mapper.Map<ReviewsGetSimpleDTO>(entity);
+                return CreatedAtRoute(nameof(GetReviews), new { Id = readDto.ReviewId }, readDto);
             }
-            var entity = await _repository.Reviews.RetrieveAsync(createdEntity.ReviewId);
-            var readDto = _mapper.Map<ReviewsGetSimpleDTO>(entity);
-            return CreatedAtRoute(nameof(GetReviews), new { Id = readDto.ReviewId }, readDto);
         }
         /// <summary>
         /// Update review
@@ -222,6 +224,10 @@ namespace SecondExam.Controllers
                 return NotFound();
             }
             _mapper.Map(updateDto, modelFromRepo);
+            if (!TryValidateModel(modelFromRepo))
+            {
+                return ValidationProblem(ModelState);
+            }
             await _repository.Reviews.UpdateAsync(modelFromRepo);
             return NoContent();
         }
