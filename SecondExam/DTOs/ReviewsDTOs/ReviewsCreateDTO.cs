@@ -4,11 +4,11 @@
     {
         public int ReviewId { get; set; }
 
-        [MaxLength(200)]
+        [MaxLengthAttribute(100)]
         public string? ReviewReference { get; set; }
 #pragma warning disable CS8618
         [Required]
-        [StringLength(500, MinimumLength = 3, ErrorMessage = "Wrong length")]
+        [MaxLengthAttribute(300)]
         public string TextReview { get; set; }
 #pragma warning restore CS8618
         [Required]
