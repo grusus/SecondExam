@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.JsonPatch;
-using SecondExam.DTOs.ReviewsDTOs;
-using SecondExam.DTOs.TypesDTOs;
-
-namespace SecondExam.Controllers
+﻿namespace SecondExam.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

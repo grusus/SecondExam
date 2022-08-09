@@ -25,4 +25,7 @@ global using SecondExam.Data.Model;
 global using SecondExam.DTOs.MaterialsDTOs;
 global using SecondExam.DTOs.AuthorsDTOs;
 global using System.ComponentModel.DataAnnotations;
+global using Microsoft.AspNetCore.JsonPatch;
+global using SecondExam.DTOs.ReviewsDTOs;
+global using SecondExam.DTOs.TypesDTOs;
 

@@ -10,6 +10,7 @@ namespace SecondExam.Profiles
             CreateMap<ReviewsCreateDTO, Review>();
             CreateMap<Review, ReviewsGetSimpleDTO>().ReverseMap();
             CreateMap<Review, ReviewsCreateDTO>();
+            CreateMap<Review, ReviewsUpdateDTO>().ReverseMap();
         }
     }
 }

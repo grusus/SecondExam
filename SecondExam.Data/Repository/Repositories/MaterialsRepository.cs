@@ -55,6 +55,15 @@ namespace SecondExam.Data.Repository.Repositories
                 .ToListAsync();
         }
 
+        public async Task<IEnumerable<Material>> RetrieveAllWithinType(int id)
+        {
+
+            return await _context.Materials
+                .Include(x => x.MaterialType)
+                .Where(x => x.MaterialTypeId == id)
+                .ToListAsync();
+        }
+
         public async Task<int> SaveChangesAsync()
         {
             return await _context.SaveChangesAsync();
