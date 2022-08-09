@@ -19,6 +19,16 @@ namespace SecondExam.Data.Repository.Repositories
             }
             return null;
         }
+        public async Task<Credentials?> CreateCredentialsAsync(Credentials entity)
+        {
+            EntityEntry<Credentials> addedUser = await _context.UserCredentials.AddAsync(entity);
+            int affectedRows = await SaveChangesAsync();
+            if (affectedRows == 1)
+            {
+                return entity;
+            }
+            return null;
+        }
 
         public async Task<User?> RetrieveAsync(int id)
         {

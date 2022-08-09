@@ -118,8 +118,6 @@ namespace SecondExam.Controllers
         /// <response code="200">OK</response>
         /// <response code="404">Not Found</response>
 
-
-
         [HttpGet]
         [Route("Authors/{id}", Name = "GetAuthors")]
         public async Task<IActionResult> GetAuthors(int id)
@@ -187,7 +185,7 @@ namespace SecondExam.Controllers
         /// <response code="200">OK</response>
         /// <response code="400">Bad request</response>
         [HttpPost]
-        [Route("Review/")]
+        [Route("Reviews/")]
         public async Task<IActionResult> Create(string textReview, int digitReview, int materialId)
         {
             var material = await _repository.Materials.RetrieveAsyncWithDetails(materialId);
@@ -215,7 +213,6 @@ namespace SecondExam.Controllers
             var readDto = _mapper.Map<ReviewsGetSimpleDTO>(entity);
             return CreatedAtRoute(nameof(GetReview), new { Id = readDto.ReviewId }, readDto);
         }
-
 
         /// <summary>
         /// Update Review

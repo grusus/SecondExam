@@ -9,5 +9,6 @@
         Task<int> SaveChangesAsync();
         Task<Material?> UpdateAsync(Material entity);
         Task<Material?> RetrieveAsyncWithDetails(int id);
+        Task<IEnumerable<Material>> RetrieveAllWithRatingAbove5Async(Author author);
     }
 }

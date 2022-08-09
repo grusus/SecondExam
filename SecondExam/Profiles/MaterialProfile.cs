@@ -8,6 +8,7 @@ namespace SecondExam.Profiles
         {
             CreateMap<Material, MaterialsGetDTO>();
             CreateMap<Material, MaterialsGetFullDTO>();
+            CreateMap<IEnumerable<Material>, MaterialsGetDTO>();
         }
     }
 }

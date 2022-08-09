@@ -45,6 +45,15 @@ namespace SecondExam.Data.Repository.Repositories
                 .Where(x => x.MaterialId == id)
                 .FirstOrDefaultAsync();
         }
+        public async Task<IEnumerable<Material>> RetrieveAllWithRatingAbove5Async(Author author)
+        {
+
+            return await _context.Materials
+                .Include(x => x.MaterialReviews)
+                .Where(x => x.AuthorId == author.AuthorId)
+                .Where(x => x.MaterialReviews.Average(x => x.DigitReview)>5)
+                .ToListAsync();
+        }
 
         public async Task<int> SaveChangesAsync()
         {
