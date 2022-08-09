@@ -19,6 +19,8 @@
         /// </summary>
         /// <returns>Get all Types</returns>
         /// <response code="200">OK</response>
+        /// <response code="403">Forbidden, no permission</response>
+        /// <response code="401">Not logged in</response>
 
         [ResponseCache(Duration = 120, Location = ResponseCacheLocation.Any)]
         [HttpGet]
@@ -42,6 +44,8 @@
         /// </remarks>
         /// <response code="200">OK</response>
         /// <response code="404">Not Found</response>
+        /// <response code="403">Forbidden, no permission</response>
+        /// <response code="401">Not logged in</response>
 
         [HttpGet]
         [Route("Types/{id}", Name = "GetTypes")]
@@ -57,6 +61,8 @@
         /// </summary>
         /// <returns>Get all Authors</returns>
         /// <response code="200">OK</response>
+        /// <response code="403">Forbidden, no permission</response>
+        /// <response code="401">Not logged in</response>
 
         [HttpGet]
         [Route("Authors/")]
@@ -79,6 +85,8 @@
         /// </remarks>
         /// <response code="200">OK</response>
         /// <response code="404">Not Found</response>
+        /// <response code="403">Forbidden, no permission</response>
+        /// <response code="401">Not logged in</response>
 
         [HttpGet]
         [Route("Authors/{id}", Name = "GetAuthors")]

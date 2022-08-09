@@ -18,6 +18,8 @@
         /// </summary>
         /// <returns>Get all Reviews</returns>
         /// <response code="200">OK</response>
+        /// <response code="403">Forbidden, no permission</response>
+        /// <response code="401">Not logged in</response>
 
         [Authorize(Roles = "user,admin")]
         [HttpGet]
@@ -41,6 +43,8 @@
         /// </remarks>
         /// <response code="200">OK</response>
         /// <response code="404">Not Found</response>
+        /// <response code="403">Forbidden, no permission</response>
+        /// <response code="401">Not logged in</response>
 
         [Authorize(Roles = "user,admin")]
         [HttpGet]
@@ -57,7 +61,7 @@
         /// </summary>
         /// <param name="textReview"></param>
         /// <param name="digitReview"></param>
-        /// <param name="MaterialId"></param>
+        /// <param name="materialId"></param>
         /// <returns>Add new Review</returns>
         /// <remarks>
         /// Sample request:
@@ -72,6 +76,8 @@
         /// <response code="201">Created</response>
         /// <response code="200">OK</response>
         /// <response code="400">Bad request</response>
+        /// <response code="403">Forbidden, no permission</response>
+        /// <response code="401">Not logged in</response>
 
         [Authorize(Roles = "user,admin")]
         [HttpPost]
@@ -122,8 +128,10 @@
         ///     }
         ///
         /// </remarks>
-        /// <response code="204">When actor was added</response>
+        /// <response code="204">When object was added</response>
         /// <response code="404">If any object doesn't exist</response>
+        /// <response code="403">Forbidden, no permission</response>
+        /// <response code="401">Not logged in</response>
 
         [Authorize(Roles = "user,admin")]
         [HttpPut("{id}")]
@@ -162,6 +170,8 @@
         /// <response code="204">No content</response>
         /// <response code="200">OK</response>
         /// <response code="400">If the item is null</response>
+        /// <response code="403">Forbidden, no permission</response>
+        /// <response code="401">Not logged in</response>
 
         [Authorize(Roles = "user,admin")]
         [HttpPatch("{id}")]
@@ -196,6 +206,8 @@
         /// </remarks>
         /// <response code="200">OK</response>
         /// <response code="404">Not Found</response>
+        /// <response code="403">Forbidden, no permission</response>
+        /// <response code="401">Not logged in</response>
 
         [Authorize(Roles = "admin")]
         [HttpDelete]

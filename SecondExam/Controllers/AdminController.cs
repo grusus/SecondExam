@@ -28,6 +28,8 @@
         /// <response code="201">Created</response>
         /// <response code="200">OK</response>
         /// <response code="400">Bad request</response>
+        /// <response code="403">Forbidden, no permission</response>
+        /// <response code="401">Not logged in</response>
 
         [HttpPost]
         [Route("AddNewAdmin")]
@@ -67,6 +69,8 @@
         /// </remarks>
         /// <response code="200">OK</response>
         /// <response code="404">Not Found</response>
+        /// <response code="403">Forbidden, no permission</response>
+        /// <response code="401">Not logged in</response>
 
         [HttpGet]
         [Route("AuthorPublications{id}")]
@@ -90,6 +94,8 @@
         /// </remarks>
         /// <response code="200">OK</response>
         /// <response code="404">Not Found</response>
+        /// <response code="403">Forbidden, no permission</response>
+        /// <response code="401">Not logged in</response>
 
         [HttpGet]
         [Route("MaterialsByType{id}")]
@@ -105,6 +111,8 @@
         /// </summary>
         /// <returns>Get most productive author</returns>
         /// <response code="200">OK</response>
+        /// <response code="403">Forbidden, no permission</response>
+        /// <response code="401">Not logged in</response>
 
         [HttpGet]
         [Route("Authors/")]
