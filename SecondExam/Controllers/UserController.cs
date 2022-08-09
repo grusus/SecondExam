@@ -20,6 +20,7 @@
         /// <returns>Get all Types</returns>
         /// <response code="200">OK</response>
 
+        [ResponseCache(Duration = 120, Location = ResponseCacheLocation.Any)]
         [HttpGet]
         [Route("Types/")]
         public async Task<IActionResult> GetAllTypes()
