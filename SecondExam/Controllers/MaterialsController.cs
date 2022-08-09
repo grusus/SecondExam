@@ -18,7 +18,7 @@
         /// </summary>
         /// <returns>Get all Materials</returns>
         /// <response code="200">OK</response>
-        /// <response code="403">Forbidden, no permission/response>
+        /// <response code="403">Forbidden, no permission</response>
         /// <response code="401">Not logged in</response>
 
         [Authorize(Roles = "user,admin")]
@@ -87,6 +87,10 @@
         [Route("")]
         public async Task<IActionResult> CreateMaterial(string title, string description, string location, int authorId, int typeId, DateTime date)
         {
+            if(authorId == 0) return BadRequest("Invalid Author Id");
+            if (await _repository.Authors.RetrieveAsync(authorId)==null) return BadRequest("Invalid Author Id");
+            if(typeId == 0) return BadRequest("Invalid Type Id");
+            if (await _repository.MaterialsTypes.RetrieveAsync(typeId)==null) return BadRequest("Invalid Type Id");
             var createdEntity = await _repository.Materials.CreateAsync(new Material()
             {
                 MaterialTitle = title,
@@ -131,17 +135,22 @@
         /// <response code="204">When object was added</response>
         /// <response code="404">If object doesn't exist</response>
         /// <response code="403">Forbidden, no permission</response>
+        /// <response code="400">Bad Request</response>
         /// <response code="401">Not logged in</response>
 
         [Authorize(Roles = "admin")]
         [HttpPut("{id}")]
-        public async Task<ActionResult> UpdateMaterial(int id, MaterialsCreateDto updateDto)
+        public async Task<ActionResult> UpdateMaterial(int id, MaterialsUpdateDTO updateDto)
         {
             var modelFromRepo = await _repository.Materials.RetrieveAsync(id);
             if (modelFromRepo == null)
             {
                 return NotFound();
             }
+            if (updateDto.AuthorId == 0) return BadRequest("Invalid Author Id");
+            if (await _repository.Authors.RetrieveAsync(updateDto.AuthorId) == null) return BadRequest("Invalid Author Id");
+            if (updateDto.MaterialTypeId == 0) return BadRequest("Invalid Type Id");
+            if (await _repository.MaterialsTypes.RetrieveAsync(updateDto.MaterialTypeId) == null) return BadRequest("Invalid Type Id");
             _mapper.Map(updateDto, modelFromRepo);
             if (!TryValidateModel(modelFromRepo))
             {
@@ -175,14 +184,14 @@
 
         [Authorize(Roles = "admin")]
         [HttpPatch("{id}")]
-        public async Task<ActionResult> PartialEntityUpdateMaterial(int id, JsonPatchDocument<MaterialsCreateDto> patchDoc)
+        public async Task<ActionResult> PartialEntityUpdateMaterial(int id, JsonPatchDocument<MaterialsUpdateDTOForPatch> patchDoc)
         {
             var modelFromRepo = await _repository.Materials.RetrieveAsync(id);
             if (modelFromRepo == null)
             {
                 return NotFound();
             }
-            var entityToPatch = _mapper.Map<MaterialsCreateDto>(modelFromRepo);
+            var entityToPatch = _mapper.Map<MaterialsUpdateDTOForPatch>(modelFromRepo);
             patchDoc.ApplyTo(entityToPatch, ModelState);
             if (!TryValidateModel(entityToPatch))
             {

@@ -30,7 +30,7 @@
         /// <response code="200">If Login is successful</response>
         /// <response code="401">If the item is null</response>
         [HttpPost]
-
+        [Route("")]
         public async Task<IActionResult> Post(int id, string login, string password)
         {
             if (login != null && password != null)
@@ -57,7 +57,7 @@
                         _configuration["Jwt:Issuer"],
                         _configuration["Jwt:Audience"],
                         claims,
-                        expires: DateTime.UtcNow.AddMinutes(10),
+                        expires: DateTime.UtcNow.AddMinutes(20),
                         signingCredentials: signIn);
 
                     return Ok(new JwtSecurityTokenHandler().WriteToken(token));
