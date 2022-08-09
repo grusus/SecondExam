@@ -1,6 +1,13 @@
-﻿namespace SecondExam.Profiles
+﻿
+
+namespace SecondExam.Profiles
 {
-    public class MaterialProfile
+    public class MaterialProfile : Profile
     {
+        public MaterialProfile()
+        {
+            CreateMap<Material, MaterialsGetDTO>();
+            CreateMap<Material, MaterialsGetFullDTO>();
+        }
     }
 }

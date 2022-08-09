@@ -19,3 +19,10 @@ global using SecondExam.Data.Repository;
 global using System.Web.Http.Cors;
 global using Newtonsoft.Json.Serialization;
 global using System.Reflection;
+global using AutoMapper;
+global using Microsoft.AspNetCore.Authorization;
+global using SecondExam.Data.Model;
+global using SecondExam.DTOs.MaterialsDTOs;
+global using SecondExam.DTOs.AuthorsDTOs;
+global using System.ComponentModel.DataAnnotations;
+

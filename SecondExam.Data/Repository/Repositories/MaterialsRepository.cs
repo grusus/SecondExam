@@ -36,6 +36,15 @@ namespace SecondExam.Data.Repository.Repositories
         {
             return await _context.Materials.FindAsync(id);
         }
+        public async Task<Material?> RetrieveAsyncWithDetails(int id)
+        {
+            return await _context.Materials
+                .Include(x => x.MatherialAuthor)
+                .Include(x => x.MaterialType)
+                .Include(x => x.MaterialReviews)
+                .Where(x => x.MaterialId == id)
+                .FirstOrDefaultAsync();
+        }
 
         public async Task<int> SaveChangesAsync()
         {

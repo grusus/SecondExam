@@ -10,7 +10,6 @@ namespace SecondExam.Data.Seeder.EntitiesSeeder
     {
         public static void SeedAuthors(this ModelBuilder builder)
         {
-            
             List<Author> authors = new();
             string[] fileLines = File.ReadAllLines("../SecondExam.Data/Seeder/EntitiesSeeder/Data/Authors.txt");
             foreach (string line in fileLines)

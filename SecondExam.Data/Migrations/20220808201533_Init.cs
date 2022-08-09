@@ -128,7 +128,7 @@ namespace SecondExam.Data.Migrations
                 {
                     { 1, "Polish author", "Jan Kowalski" },
                     { 2, "Famous russian scientist", "Wolodia Puszkin" },
-                    { 3, "Inventor of tens", "Nacomi Tachata" },
+                    { 3, "Inventor of tent", "Nacomi Tachata" },
                     { 4, "Has so many publications", "Daniel Nowak" }
                 });
 
@@ -157,10 +157,10 @@ namespace SecondExam.Data.Migrations
                 columns: new[] { "MaterialId", "AuthorId", "CreatedDate", "MaterialDescription", "MaterialLocation", "MaterialTitle", "MaterialTypeId" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2009, 7, 4, 8, 15, 11, 16, DateTimeKind.Unspecified).AddTicks(790), "How to avoid nulls in C#", "Internet", "How to avoid Nulls", 1 },
-                    { 2, 2, new DateTime(2004, 12, 26, 0, 24, 16, 94, DateTimeKind.Unspecified).AddTicks(2403), "Basic of C#", "Library", "C# for dummies", 3 },
-                    { 3, 3, new DateTime(1998, 4, 1, 17, 33, 29, 610, DateTimeKind.Unspecified).AddTicks(3173), "Collection of best practices", "Internet", "Best practices in code", 2 },
-                    { 4, 4, new DateTime(2004, 1, 30, 22, 47, 4, 352, DateTimeKind.Unspecified).AddTicks(7247), "How to seed database", "Internet", "Seeding Database", 4 }
+                    { 1, 1, new DateTime(2000, 9, 18, 9, 23, 6, 389, DateTimeKind.Unspecified).AddTicks(391), "How to avoid nulls in C#", "Internet", "How to avoid Nulls", 1 },
+                    { 2, 2, new DateTime(2005, 7, 8, 1, 27, 3, 443, DateTimeKind.Unspecified).AddTicks(8322), "Basic of C#", "Library", "C# for dummies", 3 },
+                    { 3, 3, new DateTime(1996, 10, 28, 19, 15, 5, 410, DateTimeKind.Unspecified).AddTicks(8291), "Collection of best practices", "Internet", "Best practices in code", 2 },
+                    { 4, 4, new DateTime(2009, 7, 18, 3, 26, 30, 738, DateTimeKind.Unspecified).AddTicks(8210), "How to seed database", "Internet", "Seeding Database", 4 }
                 });
 
             migrationBuilder.InsertData(

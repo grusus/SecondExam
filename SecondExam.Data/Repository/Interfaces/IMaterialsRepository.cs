@@ -8,5 +8,6 @@
         Task<Material?> RetrieveAsync(int id);
         Task<int> SaveChangesAsync();
         Task<Material?> UpdateAsync(Material entity);
+        Task<Material?> RetrieveAsyncWithDetails(int id);
     }
 }

@@ -36,6 +36,13 @@ namespace SecondExam.Data.Repository.Repositories
         {
             return await _context.Authors.FindAsync(id);
         }
+        public async Task<Author?> RetrieveAsyncWithPublications(int id)
+        {
+            return await _context.Authors
+                .Include(x => x.AuthorPublications)
+                .Where(x => x.AuthorId == id)
+                .FirstOrDefaultAsync();
+        }
 
         public async Task<int> SaveChangesAsync()
         {

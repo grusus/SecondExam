@@ -129,7 +129,7 @@ namespace SecondExam.Data.Migrations
                         new
                         {
                             AuthorId = 3,
-                            AuthorDescription = "Inventor of tens",
+                            AuthorDescription = "Inventor of tent",
                             AuthorName = "Nacomi Tachata"
                         },
                         new
@@ -182,7 +182,7 @@ namespace SecondExam.Data.Migrations
                         {
                             MaterialId = 1,
                             AuthorId = 1,
-                            CreatedDate = new DateTime(2009, 7, 4, 8, 15, 11, 16, DateTimeKind.Unspecified).AddTicks(790),
+                            CreatedDate = new DateTime(2000, 9, 18, 9, 23, 6, 389, DateTimeKind.Unspecified).AddTicks(391),
                             MaterialDescription = "How to avoid nulls in C#",
                             MaterialLocation = "Internet",
                             MaterialTitle = "How to avoid Nulls",
@@ -192,7 +192,7 @@ namespace SecondExam.Data.Migrations
                         {
                             MaterialId = 2,
                             AuthorId = 2,
-                            CreatedDate = new DateTime(2004, 12, 26, 0, 24, 16, 94, DateTimeKind.Unspecified).AddTicks(2403),
+                            CreatedDate = new DateTime(2005, 7, 8, 1, 27, 3, 443, DateTimeKind.Unspecified).AddTicks(8322),
                             MaterialDescription = "Basic of C#",
                             MaterialLocation = "Library",
                             MaterialTitle = "C# for dummies",
@@ -202,7 +202,7 @@ namespace SecondExam.Data.Migrations
                         {
                             MaterialId = 3,
                             AuthorId = 3,
-                            CreatedDate = new DateTime(1998, 4, 1, 17, 33, 29, 610, DateTimeKind.Unspecified).AddTicks(3173),
+                            CreatedDate = new DateTime(1996, 10, 28, 19, 15, 5, 410, DateTimeKind.Unspecified).AddTicks(8291),
                             MaterialDescription = "Collection of best practices",
                             MaterialLocation = "Internet",
                             MaterialTitle = "Best practices in code",
@@ -212,7 +212,7 @@ namespace SecondExam.Data.Migrations
                         {
                             MaterialId = 4,
                             AuthorId = 4,
-                            CreatedDate = new DateTime(2004, 1, 30, 22, 47, 4, 352, DateTimeKind.Unspecified).AddTicks(7247),
+                            CreatedDate = new DateTime(2009, 7, 18, 3, 26, 30, 738, DateTimeKind.Unspecified).AddTicks(8210),
                             MaterialDescription = "How to seed database",
                             MaterialLocation = "Internet",
                             MaterialTitle = "Seeding Database",
