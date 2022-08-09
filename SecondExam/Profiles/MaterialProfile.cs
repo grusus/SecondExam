@@ -1,6 +1,4 @@
-﻿
-
-namespace SecondExam.Profiles
+﻿namespace SecondExam.Profiles
 {
     public class MaterialProfile : Profile
     {

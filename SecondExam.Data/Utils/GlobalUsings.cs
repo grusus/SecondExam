@@ -12,3 +12,6 @@ global using Microsoft.EntityFrameworkCore.ChangeTracking;
 global using SecondExam.Data.Context;
 global using SecondExam.Data.Repository.Interfaces;
 global using SecondExam.Data.Repository.Repositories;
+global using SecondExam.Data.Seeder;
+global using Microsoft.EntityFrameworkCore.Migrations;
+global using Microsoft.EntityFrameworkCore.Infrastructure;

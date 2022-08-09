@@ -1,8 +1,4 @@
-﻿
-using SecondExam.DTOs.ReviewsDTOs;
-using SecondExam.DTOs.TypesDTOs;
-
-namespace SecondExam.DTOs.MaterialsDTOs
+﻿namespace SecondExam.DTOs.MaterialsDTOs
 {
     public class MaterialsGetFullDTO
     {

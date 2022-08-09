@@ -1,14 +1,14 @@
-﻿using SecondExam.Data.Repository.Interfaces;
-
-namespace SecondExam.Data.Repository.Repositories
+﻿namespace SecondExam.Data.Repository.Repositories
 {
     public class TypesRepository : ITypesRepository
     {
         private readonly ApiContext _context;
+
         public TypesRepository(ApiContext injectedContext)
         {
             _context = injectedContext;
         }
+
         public async Task<MaterialType?> CreateAsync(MaterialType entity)
         {
             EntityEntry<MaterialType> addedMaterialType = await _context.Types.AddAsync(entity);

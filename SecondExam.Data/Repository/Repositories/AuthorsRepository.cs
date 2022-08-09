@@ -1,14 +1,14 @@
-﻿using SecondExam.Data.Repository.Interfaces;
-
-namespace SecondExam.Data.Repository.Repositories
+﻿namespace SecondExam.Data.Repository.Repositories
 {
     public class AuthorsRepository : IAuthorsRepository
     {
         private readonly ApiContext _context;
+
         public AuthorsRepository(ApiContext injectedContext)
         {
             _context = injectedContext;
         }
+
         public async Task<Author?> CreateAsync(Author entity)
         {
             EntityEntry<Author> addedAuthor = await _context.Authors.AddAsync(entity);
@@ -36,6 +36,7 @@ namespace SecondExam.Data.Repository.Repositories
         {
             return await _context.Authors.FindAsync(id);
         }
+
         public async Task<Author?> RetrieveAsyncWithPublications(int id)
         {
             return await _context.Authors
@@ -43,6 +44,7 @@ namespace SecondExam.Data.Repository.Repositories
                 .Where(x => x.AuthorId == id)
                 .FirstOrDefaultAsync();
         }
+
         public async Task<Author?> RetrieveMostProductiveAuthor()
         {
             var authors = await _context.Authors.Include(x => x.AuthorPublications).ToListAsync();

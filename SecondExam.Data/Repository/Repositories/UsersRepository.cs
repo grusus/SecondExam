@@ -1,14 +1,14 @@
-﻿using SecondExam.Data.Repository.Interfaces;
-
-namespace SecondExam.Data.Repository.Repositories
+﻿namespace SecondExam.Data.Repository.Repositories
 {
     public class UsersRepository : IUsersRepository
     {
         private readonly ApiContext _context;
+
         public UsersRepository(ApiContext injectedContext)
         {
             _context = injectedContext;
         }
+
         public async Task<User?> CreateAsync(User entity)
         {
             EntityEntry<User> addedUser = await _context.Users.AddAsync(entity);
@@ -19,6 +19,7 @@ namespace SecondExam.Data.Repository.Repositories
             }
             return null;
         }
+
         public async Task<Credentials?> CreateCredentialsAsync(Credentials entity)
         {
             EntityEntry<Credentials> addedUser = await _context.UserCredentials.AddAsync(entity);

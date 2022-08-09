@@ -7,7 +7,6 @@
         ITypesRepository MaterialsTypes { get; }
         IReviewsRepository Reviews { get; }
         IUsersRepository Users { get; }
-
         int CompleteUnit();
     }
 }

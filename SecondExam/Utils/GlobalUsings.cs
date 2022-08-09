@@ -28,4 +28,6 @@ global using System.ComponentModel.DataAnnotations;
 global using Microsoft.AspNetCore.JsonPatch;
 global using SecondExam.DTOs.ReviewsDTOs;
 global using SecondExam.DTOs.TypesDTOs;
-
+global using SecondExam.Data.Utils;
+global using SecondExam.DTOs;
+global using System.ComponentModel.DataAnnotations.Schema;

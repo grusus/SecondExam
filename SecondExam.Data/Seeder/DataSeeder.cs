@@ -1,5 +1,4 @@
-﻿
-namespace SecondExam.Data.Seeder
+﻿namespace SecondExam.Data.Seeder
 {
     public static class DataSeeder
     {

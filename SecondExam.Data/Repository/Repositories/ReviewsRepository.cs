@@ -1,14 +1,14 @@
-﻿using SecondExam.Data.Repository.Interfaces;
-
-namespace SecondExam.Data.Repository.Repositories
+﻿namespace SecondExam.Data.Repository.Repositories
 {
     public class ReviewsRepository : IReviewsRepository
     {
         private readonly ApiContext _context;
+
         public ReviewsRepository(ApiContext injectedContext)
         {
             _context = injectedContext;
         }
+
         public async Task<Review?> CreateAsync(Review entity)
         {
             EntityEntry<Review> addedReview = await _context.Reviews.AddAsync(entity);

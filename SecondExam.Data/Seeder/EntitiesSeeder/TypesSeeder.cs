@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SecondExam.Data.Seeder.EntitiesSeeder
+﻿namespace SecondExam.Data.Seeder.EntitiesSeeder
 {
     public static class TypesSeeder
     {
@@ -20,6 +14,7 @@ namespace SecondExam.Data.Seeder.EntitiesSeeder
 
             builder.Entity<MaterialType>().HasData(types);
         }
+
         private static MaterialType GetItemFromLine(string line)
         {
             string[] item = line.Split('|');

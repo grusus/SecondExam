@@ -1,7 +1,4 @@
-﻿
-using SecondExam.Data.Utils;
-
-namespace SecondExam.Controllers
+﻿namespace SecondExam.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

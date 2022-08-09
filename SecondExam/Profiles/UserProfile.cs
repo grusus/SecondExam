@@ -1,6 +1,4 @@
-﻿using SecondExam.DTOs;
-
-namespace SecondExam.Profiles
+﻿namespace SecondExam.Profiles
 {
     public class UserProfile : Profile
     {

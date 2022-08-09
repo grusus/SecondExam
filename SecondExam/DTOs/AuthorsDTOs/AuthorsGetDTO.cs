@@ -1,5 +1,4 @@
-﻿
-namespace SecondExam.DTOs.AuthorsDTOs
+﻿namespace SecondExam.DTOs.AuthorsDTOs
 {
     public class AuthorsGetDTO
     {

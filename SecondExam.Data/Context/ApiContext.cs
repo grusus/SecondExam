@@ -1,7 +1,4 @@
-﻿
-using SecondExam.Data.Seeder;
-
-namespace SecondExam.Data.Context
+﻿namespace SecondExam.Data.Context
 {
     public class ApiContext : DbContext
     {

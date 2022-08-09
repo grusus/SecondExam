@@ -1,14 +1,14 @@
-﻿using SecondExam.Data.Repository.Interfaces;
-
-namespace SecondExam.Data.Repository.Repositories
+﻿namespace SecondExam.Data.Repository.Repositories
 {
     public class MaterialsRepository : IMaterialsRepository
     {
         private readonly ApiContext _context;
+
         public MaterialsRepository(ApiContext injectedContext)
         {
             _context = injectedContext;
         }
+
         public async Task<Material?> CreateAsync(Material entity)
         {
             EntityEntry<Material> addedMaterial = await _context.Materials.AddAsync(entity);
@@ -36,6 +36,7 @@ namespace SecondExam.Data.Repository.Repositories
         {
             return await _context.Materials.FindAsync(id);
         }
+
         public async Task<Material?> RetrieveAsyncWithDetails(int id)
         {
             return await _context.Materials
@@ -45,6 +46,7 @@ namespace SecondExam.Data.Repository.Repositories
                 .Where(x => x.MaterialId == id)
                 .FirstOrDefaultAsync();
         }
+
         public async Task<IEnumerable<Material>> RetrieveAllWithRatingAbove5Async(Author author)
         {
 

@@ -1,5 +1,4 @@
-﻿
-namespace SecondExam.Profiles
+﻿namespace SecondExam.Profiles
 {
     public class AuthorProfile : Profile
     {
